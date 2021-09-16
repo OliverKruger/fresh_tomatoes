@@ -10,8 +10,14 @@ if (!empty($_POST["data"])) {
 
     $db->sql($sql, $bind, false);
 
-    echo "Data er indsat. <a href='insert.php'>Indsæt nyt data</a>";
+    echo " <div class='echo_style'>
+ <h3>Your data has now been uploaded</h3>
+ <a href='insert.php'>Upload more data</a>
+</div>";
     exit;
+
+
+
 }
 
 ?>
@@ -36,9 +42,9 @@ if (!empty($_POST["data"])) {
 </head>
 
 <body>
+<?php include "includes/navbar.php";?>
 
-
-<div class="container mb-5 md-border">
+<div class="container  mt-5 mb-5 md-border">
 
 <form method="post" action="insert.php">
     <div class="row">
@@ -106,18 +112,42 @@ if (!empty($_POST["data"])) {
         </div>
     </div>
     <div class="col-12 col-md-4 mb-2">
-        <button class="form-control btn btn-primary" type="submit" id="btnSubmit">Opret Data</button>
+        <button class="form-control btn btn-primary" type="button" id="btnSubmit">Upload Data</button>
     </div>
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+
+            <p>Are you sure?</p>
+            <div class="row">
+                <div class="col-6">
+            <button class="form-control btn btn-primary" type="button" id="closeBtn">CANCEL</button>
+                </div>
+                <div class="col-6">
+                    <button class="form-control btn btn-primary" type="submit" id="btnSubmit">YES</button>
+                </div>
+            </div>
+        </div>
 
     </div>
+
 </form>
-</div>
+
+
+
+
 
 <script>
     tinymce.init({
         selector: 'textarea',
     });
 </script>
+    <script>
+
+    </script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="modal.js"></script>
 </body>
 </html>
