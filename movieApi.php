@@ -21,7 +21,7 @@ $header = "HTTP/1.1 204 No Content"; // Updating or deleting a resource in 204 N
 header('Content-Type: application/json; charset=utf-8');
 
 if(isset($data) && $data["password"] == "Fresh_Tomatoes") {
-    $sql = "SELECT * FROM movie WHERE movRating >3";
+    $sql = "SELECT * FROM movie WHERE 1=1";
     $sql = "SELECT * FROM movie ORDER BY movRating DESC ";
     $bind = [];
 
