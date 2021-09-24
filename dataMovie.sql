@@ -43,7 +43,7 @@ CREATE TABLE `movie` (
 -- Data dump for tabellen `movie`
 --
 
-INSERT INTO `movie` (`movId`, `movName`, `movDescription`, `movRating`, `movDate`, `movGenre`, `movActors`, `movAge`, `movBlogDate`, `movTags`) VALUES
+INSERT INTO `movie` (`movId`, `movName`,`movDescription`, `movRating`, `movDate`, `movGenre`, `movActors`, `movAge`, `movBlogDate`, `movTags`) VALUES
 (83, 'Ternet Ninja 2', '<p>ternet</p>', '4.0', '2021-09-24', 'acion', 'Anders Mathessen', 5, '2021-09-16 22:22:32', 'sjov');
 
 --
