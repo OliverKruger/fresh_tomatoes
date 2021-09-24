@@ -5,6 +5,14 @@ body {
   margin: 0;
 }
 
+.center-info{
+  @media screen and(min-width: 992px){
+    width: 80%;
+    margin: 0 auto;
+
+  }
+}
+
 .movieHeader{
   margin-top: 2rem;
 
@@ -32,7 +40,11 @@ body {
 }
 
 .container_img_des{
+  @media screen and(min-width: 992px){
+    width: 80%;
+    margin: 0 auto;
 
+  }
 
   img{
     width: 80%;
@@ -44,6 +56,18 @@ body {
       margin: 2rem 1rem;
 
     }
+    @media screen and(min-width: 668px){
+      float: left;
+      max-width: 30%;
+      margin: 2rem 1rem;
+
+    }
+    @media screen and(min-width: 992px){
+      float: left;
+      max-width: 25%;
+      margin: 2rem 1rem;
+
+    }
   }
 
   .text{
@@ -52,6 +76,9 @@ body {
     margin-top: 1rem;
     margin-right: 1rem;
     text-align: justify;
+    h3{
+      font-weight: bolder;
+    }
   }
 
   .rating{
@@ -64,10 +91,7 @@ body {
       margin-left: 10px;
       font-weight: lighter;
     }
-    @media screen and(min-width: 480px){
 
-
-    }
   }
 
   @media screen and(min-width: 480px){
