@@ -1,3 +1,17 @@
+<?php
+require "settings/init.php";
+
+if (!empty($_GET["type"])){
+    if($_GET["type"] == "slet"){
+        $id = $_GET["id"];
+
+        $db-> sql("DELETE FROM movie WHERE movId = :movId", [":movId"=>$id], false);
+    }
+    header("location: index.php");
+}
+
+$movie = $db-> sql("SELECT * FROM movie WHERE movRating > 3");
+?>
 <!-- Instruktion til webbrowser om at vi kører HTML5 -->
 <!DOCTYPE html>
 
@@ -27,7 +41,34 @@
 
 <body>
 <?php include "includes/navbar.php";?>
-<body>
+
+<?php
+foreach ($movie as $movie_) {
+    ?>
+    <div class="row border-bottom">
+        <div class="col-12 col-md-4">
+            <?php
+            echo $movie_->movName;
+            ?>
+        </div>
+
+        <div class="col-12 col-md-4 ">
+            <?php
+            echo number_format($movie_->movRating,2, ",", ".") . "<br>";
+            ?>
+        </div>
+        <div class="col-12 col-md-2 ">
+            <a href="index.php?type=rediger&id=<?php echo $movie_->movId; ?>">rediger</a>
+        </div>
+        <div class="col-12 col-md-2">
+            <a href="index.php?type=slet&id=<?php echo $movie_->movId; ?>">slet</a>
+
+        </div>
+    </div>
+    <?php
+}
+?>
+
 
 <!-- Her skal sidens indhold ligge -->
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
