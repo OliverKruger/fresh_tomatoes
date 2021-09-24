@@ -43,7 +43,7 @@ $movie = $movie[0];
 <body>
 <?php include "includes/navbar.php";?>
 
-<div class="container-lg">
+<div class="container-lg center-info">
 <div class="movieHeader">
     <h1><?php echo $movie->movName; ?></h1>
     <div class="infoBox">
