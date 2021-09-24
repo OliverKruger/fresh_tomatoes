@@ -7,18 +7,34 @@ const btn = document.getElementById("btnSubmit");
 const closeBtn = document.getElementById("closeBtn");
 
 
+const url = new URL(window.location.href);
+const status = url.searchParams.get("status");
+
+if(status === "1"){
+    alert("Oprettet");
+    window.history.replaceState(null, null, window.location.pathname);
+}
+
 
 // When the user clicks the button, open the modal
 btn.onclick = function() {
-    modal.style.display = "block";
+    openModal();
 }
 
 closeBtn.onclick = function() {
-    modal.style.display = "none";
+    closeModal();
 }
 
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+        closeModal();
     }
+}
+
+function openModal(){
+    modal.style.display = "block";
+}
+
+function closeModal(){
+    modal.style.display = "none";
 }
