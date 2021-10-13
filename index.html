@@ -14,11 +14,91 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<nav class="navbar navbar-expand-lg navbar-dark nav-far">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="index.html">
+			<img src="img/tomato-svgrepo-com.svg" width="30" height="30" class="d-inline-block align-top" alt="tomat">
+			FRESH TOMATOES</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav  ms-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="index.html">HOME</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="insert.php">UPLOAD MOVIE</a>
+				</li>
+			</ul>
 
+		</div>
+	</div>
+</nav>
 <body>
 
+	<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img class="d-block w-100 pop" src="img/popcorn.png" alt="First slide">
+				<div class="hero-text">
+					<h1>WELCOME TO FRESH TOMATOES</h1>
+					<p>Find your next movie here</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<div class="container">
+
+	<div class="movies">
+		<div class="filter p-5">
+			<div class="row">
+				<div class="col-md-4 offset-md-4">
+					<input type="search" class="form-control nameSearch" placeholder="Search movie, actor, etc.">
+				</div>
+			</div>
+		</div>
+
+		<div class="items">
+
+		</div>
+
+	</div>
+
+</div>
 
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module">
+	import Cookie from "./js/cookie.js";
+
+	const cookie = new Cookie();
+
+	cookie.cookieEllerHvad();
+
+	/*cookie.skalJegGiveCookie(true).then((response) => {
+		console.log(response)
+
+		cookie.erDetEnStorKage('large').then((response) => {
+			console.log(response);
+		}).catch((error) => {
+		console.log(error);
+		});
+
+	}).catch((error) => {
+		console.log(error)
+
+	})*/
+
+</script>
+<script type="module">
+	import Movies from "./js/movies.js";
+
+	const movies = new Movies();
+	movies.init();
+
+</script>
 </body>
 </html>

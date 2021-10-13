@@ -1,0 +1,26 @@
+[
+  {
+    "name": "oliver",
+    "age": "24",
+    "favoriteColors": [
+      "red",
+      "green",
+      "blue"
+    ],
+    "hobbies": {
+      "brydning": "spitze",
+      "mad": "elsker det"
+    }
+  },
+  {
+    "name": "John Doe",
+    "age": "25",
+    "favoriteColors": [
+      "pink",
+      "black"
+    ],
+    "hobbies": {
+      "fodbold": "nice"
+    }
+  }
+]

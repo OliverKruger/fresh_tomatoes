@@ -3,7 +3,7 @@ require "settings/init.php";
 
 
 
-$bind = [":movId" => 118];
+$bind = [":movId" => $_GET["movId"]];
 $movie = $db->sql("SELECT  * FROM movie WHERE movId = :movId", $bind);
 $movie = $movie[0];
 

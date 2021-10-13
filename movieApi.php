@@ -4,6 +4,7 @@ require "settings/init.php";
 $data = json_decode(file_get_contents('php://input'), true);
 
 $data["password"] = "Fresh_Tomatoes";
+//$data["nameSearch"] = "Focus";
 
 /*
  * password skal udfyldes og være Fresh_Tomatoes
@@ -21,34 +22,36 @@ $header = "HTTP/1.1 204 No Content"; // Updating or deleting a resource in 204 N
 header('Content-Type: application/json; charset=utf-8');
 
 if(isset($data) && $data["password"] == "Fresh_Tomatoes") {
-    $sql = "SELECT * FROM movie WHERE 1=1";
-    $sql = "SELECT * FROM movie ORDER BY movRating DESC ";
+    $sql = "SELECT * FROM movie WHERE 1=1 ";
+
     $bind = [];
 
-
-
     if(!empty($data["nameSearch"])) {
-        $sql .= " AND movName = :movName";
+        $sql .= " AND movName LIKE CONCAT('%' ,:movName, '%')";
         $bind[":movName"] = $data["nameSearch"];
     }
 
     if(!empty($data["actorsSearch"])) {
-        $sql .= " AND movActors = :movActors";
+        $sql .= " OR movActors  LIKE CONCAT('%' ,:movActors, '%')";
         $bind[":movActors"] = $data["actorsSearch"];
     }
 
     if(!empty($data["ageSearch"])) {
-        $sql .= " AND movAge = :movAge";
+        $sql .= " OR movAge LIKE CONCAT('%' ,:movAge, '%')";
         $bind[":movAge"] = $data["ageSearch"];
     }
 
     if(!empty($data["rateSearch"])) {
-        $sql .= " AND movRating = :movRating";
+        $sql .= " OR movRating LIKE CONCAT('%' ,:movRating, '%')";
         $bind[":movRating"] = $data["rateSearch"];
     }
 
+    if(!empty($data["genreSearch"])) {
+        $sql .= " OR movGenre LIKE CONCAT('%' ,:movGenre, '%')";
+        $bind[":movGenre"] = $data["genreSearch"];
+    }
 
-
+    $sql .= " ORDER BY movRating DESC";
 
 
     $movie = $db->sql($sql, $bind);

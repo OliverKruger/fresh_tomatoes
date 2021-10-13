@@ -10,7 +10,7 @@ if (!empty($_GET["type"])){
     header("location: index.php");
 }
 
-$movie = $db-> sql("SELECT * FROM movie WHERE movRating > 3");
+$movie = $db-> sql("SELECT * FROM movie WHERE 1=1");
 ?>
 <!-- Instruktion til webbrowser om at vi kører HTML5 -->
 <!DOCTYPE html>
